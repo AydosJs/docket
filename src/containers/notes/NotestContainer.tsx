@@ -4,8 +4,6 @@ import { Note, noteSelector } from "../../store/notes/noteSlice";
 import { useAppSelector } from "../../store/hooks";
 
 export default function NotestContainer() {
-  // const dispatch = useAppDispatch();
-
   const [notes, setNotes] = useState<Array<Note>>([])
   const storedNotes = useAppSelector(noteSelector)
 
