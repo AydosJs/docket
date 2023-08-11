@@ -31,9 +31,17 @@ export const noteSlice = createSlice({
     addNote: (state, action: PayloadAction<Note>) => {
       state.push(action.payload);
     },
+    editNote: (state, action: PayloadAction<Note>) => {
+      const noteIndex = state.findIndex((note) => note.id == action.payload.id);
+
+      if (state.findIndex((note) => note.id == action.payload.id) !== -1) {
+        state[noteIndex].note = action.payload.note;
+        state[noteIndex].date = action.payload.date;
+      }
+    },
   },
 });
 
-export const { addNote } = noteSlice.actions;
+export const { addNote, editNote } = noteSlice.actions;
 export const noteSelector = (state: RootState) => state.noteReducer;
 export default noteSlice.reducer;
