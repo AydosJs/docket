@@ -21,7 +21,7 @@ export default function NotestContainer() {
       </h1>
 
       <div className="grid grid-cols-5 gap-6 place-items-stretch">
-        {notes.map((note) => (
+        {notes?.length !== 0 && notes.map((note) => (
           <CardComponent note={note} key={note.id} />
         ))}
       </div>
