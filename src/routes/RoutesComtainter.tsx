@@ -6,6 +6,7 @@ import AuthContainer from "../containers/auth/AuthContainer";
 const RoutesComtainter = () => {
   return (
     <BrowserRouter>
+      <div style={{ zIndex: -9999999 }} className="absolute top-0 left-0 w-screen h-screen r-0 pattern-dots pattern-black pattern-bg-transparent pattern-opacity-5 pattern-size-2"></div>
       <Routes>
         <Route path="/" element={<App />}>
         </Route>
