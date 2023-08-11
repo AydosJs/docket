@@ -1,18 +1,22 @@
+import { Note } from "../store/notes/noteSlice";
+
 type Props = {
-  title?: string;
+  note: Note
 }
 
-export default function CardComponent({ title = "Card 1" }: Props) {
+export default function CardComponent({ note }: Props) {
   return (
     <div className="relative flex flex-col justify-between p-5 space-y-8 overflow-hidden border cursor-pointer group bg-slate-100 rounded-xl">
       <div>
         <p className="cursor-text font-medium text-md line-clamp-6 min-h-[144px] outline-none" contentEditable>
-          {title} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat ut, neque iste veniam accusamus sunt!
+          {note.note}
         </p>
       </div>
       <div className="flex flex-row items-center justify-between opacity-80 group-hover:opacity-100 flex-nowrap">
         <div>
-          <p className="text-sm font-semibold">May 21, 2020</p>
+          <p className="text-sm font-semibold">
+            {note.date}
+          </p>
         </div>
         <div className=" cursor-pointer flex items-center justify-center rounded-full w-[36px] h-[36px] bg-black">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-white">
