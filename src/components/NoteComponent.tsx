@@ -6,7 +6,7 @@ type Props = {
   note: Note
 }
 
-export default function CardComponent({ note }: Props) {
+export default function NoteComponent({ note }: Props) {
   const paragraphRef = useRef<HTMLParagraphElement>(null);
   const dispatch = useDispatch()
   const handleEdit = (): void => {
@@ -20,7 +20,9 @@ export default function CardComponent({ note }: Props) {
   };
 
   return (
-    <div className={`relative flex flex-col justify-between p-5 space-y-8 overflow-hidden border cursor-pointer group bg-${note.color.paint}-400 rounded-xl`}>
+    <div
+      style={{ backgroundColor: note.color.paint }}
+      className={`relative flex flex-col justify-between p-5 space-y-8 overflow-hidden border cursor-pointer group rounded-xl`}>
       <div>
         <p suppressContentEditableWarning ref={paragraphRef} onBlur={handleEdit} className="cursor-text font-medium text-md line-clamp-6 min-h-[144px] outline-none" contentEditable>
           {note.note}

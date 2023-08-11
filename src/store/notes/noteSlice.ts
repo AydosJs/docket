@@ -3,7 +3,7 @@ import { RootState } from "../store";
 
 export interface Color {
   id: string;
-  paint: "orange" | "rose" | "purple" | "sky" | "yellow";
+  paint: string;
 }
 export interface Note {
   id: string;

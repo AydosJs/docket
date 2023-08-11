@@ -2,30 +2,30 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Color, Note, addNote } from "../store/notes/noteSlice";
 import { useDispatch } from "react-redux";
+const colors: Array<Color> = [
+  {
+    id: '1',
+    paint: '#FB923C'
+  },
+  {
+    id: '2',
+    paint: '#FB7185'
+  },
+  {
+    id: '3',
+    paint: '#C084FC'
+  },
+  {
+    id: '4',
+    paint: '#38BDF8'
+  },
+  {
+    id: '5',
+    paint: '#FACC15'
+  }
+]
 
 export default function SideBarComponent() {
-  const colors: Array<Color> = [
-    {
-      id: '1',
-      paint: 'orange'
-    },
-    {
-      id: '2',
-      paint: 'rose'
-    },
-    {
-      id: '3',
-      paint: 'purple'
-    },
-    {
-      id: '4',
-      paint: 'sky'
-    },
-    {
-      id: '5',
-      paint: 'yellow'
-    }
-  ]
 
   const dispatch = useDispatch()
   const [openClors, setOpenColors] = useState<boolean>(false)
@@ -58,12 +58,14 @@ export default function SideBarComponent() {
 
         {openClors && (
           <>
-            {colors.map((color) => <div
+            {colors.map((item: Color) => <div
               onClick={() => (
-                handleNote(color),
+                handleNote(item),
                 setOpenColors(!openClors)
               )}
-              key={color.id} className={`cursor-pointer w-[20px] h-[20px] rounded-full flex items-center justify-center bg-${color.paint}-400`} />)}
+              key={item.id}
+              style={{ backgroundColor: item.paint }}
+              className={`cursor-pointer w-[20px] h-[20px] rounded-full flex items-center justify-center`} />)}
           </>
         )}
 
