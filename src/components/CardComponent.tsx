@@ -6,7 +6,7 @@ type Props = {
 
 export default function CardComponent({ note }: Props) {
   return (
-    <div className="relative flex flex-col justify-between p-5 space-y-8 overflow-hidden border cursor-pointer group bg-slate-100 rounded-xl">
+    <div className={`relative flex flex-col justify-between p-5 space-y-8 overflow-hidden border cursor-pointer group bg-${note.color.paint}-400 rounded-xl`}>
       <div>
         <p className="cursor-text font-medium text-md line-clamp-6 min-h-[144px] outline-none" contentEditable>
           {note.note}

@@ -1,22 +1,71 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Color, Note, addNote } from "../store/notes/noteSlice";
+import { useDispatch } from "react-redux";
 
 export default function SideBarComponent() {
+  const colors: Array<Color> = [
+    {
+      id: '1',
+      paint: 'orange'
+    },
+    {
+      id: '2',
+      paint: 'rose'
+    },
+    {
+      id: '3',
+      paint: 'purple'
+    },
+    {
+      id: '4',
+      paint: 'sky'
+    },
+    {
+      id: '5',
+      paint: 'yellow'
+    }
+  ]
+
+  const dispatch = useDispatch()
+  const [openClors, setOpenColors] = useState<boolean>(false)
+
+  const handleNote = (color: Color) => {
+    const newNote: Note = {
+      id: Math.random().toString(36).substring(2),
+      note: 'This is Docket note.',
+      date: new Date().toLocaleDateString(),
+      color: color
+    }
+
+    dispatch(addNote(newNote))
+  }
+
   return (
     <div className="flex flex-col items-center justify-between h-full">
       <div className="flex flex-col items-center space-y-4">
         <h1 className="mt-2 mb-12 text-base font-medium">Docket</h1>
 
-        <div className="!mb-4 cursor-pointer w-[40px] h-[40px] rounded-full flex items-center justify-center bg-black">
+        <div
+          onClick={() => {
+            setOpenColors(!openClors)
+          }}
+          className="!mb-4 cursor-pointer w-[40px] h-[40px] rounded-full flex items-center justify-center bg-black">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-6 h-6 text-white">
             <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
           </svg>
         </div>
 
-        <div className="cursor-pointer w-[20px] h-[20px] rounded-full flex items-center justify-center bg-orange-400" />
-        <div className="cursor-pointer w-[20px] h-[20px] rounded-full flex items-center justify-center bg-rose-400" />
-        <div className="cursor-pointer w-[20px] h-[20px] rounded-full flex items-center justify-center bg-purple-400" />
-        <div className="cursor-pointer w-[20px] h-[20px] rounded-full flex items-center justify-center bg-sky-400" />
-        <div className="cursor-pointer w-[20px] h-[20px] rounded-full flex items-center justify-center bg-yellow-400" />
+        {openClors && (
+          <>
+            {colors.map((color) => <div
+              onClick={() => (
+                handleNote(color),
+                setOpenColors(!openClors)
+              )}
+              key={color.id} className={`cursor-pointer w-[20px] h-[20px] rounded-full flex items-center justify-center bg-${color.paint}-400`} />)}
+          </>
+        )}
 
       </div>
 

@@ -17,7 +17,7 @@ export default function NotestContainer() {
   }, [storedNotes])
 
   return (
-    <div>
+    <div className="min-h-[calc(100vh-212px)]">
       <h1 className="mb-12 text-5xl font-semibold">
         Notes
       </h1>

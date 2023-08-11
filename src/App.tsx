@@ -9,7 +9,7 @@ function App() {
       <div className='w-[106px] h-full p-4 pt-6'>
         <SideBarComponent />
       </div>
-      <div className='w-full h-full p-4 px-12 pt-6 overflow-y-auto'>
+      <div className='w-full p-4 px-12 pt-6 overflow-y-auto'>
         <SearchComponent />
         <NotestContainer />
         <FooterComponent />

@@ -1,17 +1,26 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
+export interface Color {
+  id: string;
+  paint: "orange" | "rose" | "purple" | "sky" | "yellow";
+}
 export interface Note {
   id: string;
   note: string;
   date: string;
+  color: Color;
 }
 
 const initialState: Array<Note> = [
   {
     id: "1",
-    note: "This is Docker note",
-    date: "May 21, 2023",
+    note: "This is Docker note.",
+    date: "11/08/2023",
+    color: {
+      id: "1",
+      paint: "orange",
+    },
   },
 ];
 
