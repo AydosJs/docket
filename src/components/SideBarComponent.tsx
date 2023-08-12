@@ -35,7 +35,11 @@ export default function SideBarComponent() {
       id: Math.random().toString(36).substring(2),
       note: 'This is Docket note.',
       date: new Date().toLocaleDateString(),
-      color: color
+      color: color,
+      selected: {
+        selected: false,
+        date: ''
+      }
     }
 
     dispatch(addNote(newNote))

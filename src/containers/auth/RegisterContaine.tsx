@@ -34,7 +34,7 @@ export default function RegisterContaine() {
       <form className="flex flex-col w-1/4 space-y-6" onSubmit={formik.handleSubmit}>
         <div className="mb-4">
           <h1 className="mb-1 text-4xl font-semibold text-black">
-            Welcome back again!
+            Create an account
           </h1>
           <p className="font-normal text-gray-400">If you already have an account: <Link className="font-semibold text-blue-400 underline hover:text-blue-600" to="/login">Login</Link></p>
         </div>
@@ -74,7 +74,7 @@ export default function RegisterContaine() {
 
         <Link to={"/"}>
           <Button type="submit" className="mt-4 bg-purple-600 hover:bg-purple-700" >
-            Register
+            Create account
           </Button>
         </Link>
       </form>

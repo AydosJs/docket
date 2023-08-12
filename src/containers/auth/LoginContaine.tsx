@@ -31,9 +31,9 @@ export default function LoginContaine() {
       <form className="flex flex-col w-1/4 space-y-6" onSubmit={formik.handleSubmit}>
         <div className="mb-4">
           <h1 className="mb-1 text-4xl font-semibold text-black">
-            Welcome back again!
+            Welcome back!
           </h1>
-          <p className="font-normal text-gray-400">If you don't have an account yet: <Link className="font-semibold text-blue-400 underline hover:text-blue-600" to="/register">Register</Link></p>
+          <p className="font-normal text-gray-400">Don't you have an account? <Link className="font-semibold text-blue-400 underline hover:text-blue-600" to="/register">Register</Link></p>
         </div>
 
         <TextField

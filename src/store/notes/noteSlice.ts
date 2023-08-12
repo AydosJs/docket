@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-
 export interface Color {
   id: string;
   paint: string;
@@ -10,6 +9,10 @@ export interface Note {
   note: string;
   date: string;
   color: Color;
+  selected: {
+    selected: boolean;
+    date: string;
+  };
 }
 
 const initialState: Array<Note> = [
@@ -20,6 +23,10 @@ const initialState: Array<Note> = [
     color: {
       id: "1",
       paint: "orange",
+    },
+    selected: {
+      selected: false,
+      date: "",
     },
   },
 ];
@@ -33,15 +40,21 @@ export const noteSlice = createSlice({
     },
     editNote: (state, action: PayloadAction<Note>) => {
       const noteIndex = state.findIndex((note) => note.id == action.payload.id);
-
-      if (state.findIndex((note) => note.id == action.payload.id) !== -1) {
+      if (noteIndex !== -1) {
         state[noteIndex].note = action.payload.note;
         state[noteIndex].date = action.payload.date;
+      }
+    },
+    selected: (state, action: PayloadAction<Note>) => {
+      const noteIndex = state.findIndex((note) => note.id == action.payload.id);
+      if (noteIndex !== -1) {
+        state[noteIndex].selected.selected = action.payload.selected.selected;
+        state[noteIndex].selected.date = action.payload.selected.date;
       }
     },
   },
 });
 
-export const { addNote, editNote } = noteSlice.actions;
+export const { addNote, editNote, selected } = noteSlice.actions;
 export const noteSelector = (state: RootState) => state.noteReducer;
 export default noteSlice.reducer;
