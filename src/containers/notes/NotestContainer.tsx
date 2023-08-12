@@ -14,6 +14,8 @@ export default function NotestContainer() {
     }
   }, [storedNotes])
 
+  console.log("array", notes)
+
   return (
     <div className="min-h-[calc(100vh-212px)]">
       <h1 className="mb-12 text-5xl font-semibold">
@@ -22,7 +24,7 @@ export default function NotestContainer() {
 
       <div className="grid grid-cols-5 gap-6 place-items-stretch">
         {notes?.length !== 0 && notes.map((note: Note) => (
-          <NoteComponent note={note} key={note.id} />
+          <NoteComponent note={note} key={note?.id} />
         ))}
       </div>
 

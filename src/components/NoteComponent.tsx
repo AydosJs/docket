@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Note, editNote, selected } from "../store/notes/noteSlice";
+import { Note, deleteNote, editNote, selected } from "../store/notes/noteSlice";
 import { useDispatch } from "react-redux";
 
 type Props = {
@@ -29,15 +29,21 @@ export default function NoteComponent({ note }: Props) {
     }))
   }
 
+  const handleDelete = () => {
+    dispatch(deleteNote(note.id))
+  }
+
   return (
     <div
       style={{ backgroundColor: note.color.paint }}
       className={`relative flex flex-col justify-between p-5 space-y-8 overflow-hidden border cursor-pointer group rounded-xl`}>
-      <div>
-        <p suppressContentEditableWarning ref={paragraphRef} onBlur={handleEdit} className="cursor-text font-medium text-md line-clamp-6 min-h-[144px] outline-none" contentEditable>
+
+      <div className="min-h-[144px]">
+        <p suppressContentEditableWarning ref={paragraphRef} onBlur={handleEdit} className="font-medium outline-none cursor-text text-md line-clamp-6" contentEditable>
           {note.note}
         </p>
       </div>
+
       <div className="flex flex-row items-center justify-between opacity-60 group-hover:opacity-100 flex-nowrap">
         <div>
           <p className="text-sm font-semibold">
@@ -56,9 +62,17 @@ export default function NoteComponent({ note }: Props) {
 
       <div
         onClick={() => handleSelected()}
-        className={`group-hover:opacity-100 transition-all duration-300 absolute flex items-center justify-center w-[30px] h-[30px] ${!note.selected.selected ? 'group-hover:right-5 right-[-40px] top-[-10px]' : 'right-5 top-[-10px]'} bg-black rounded-full transform`}>
+        className={`group-hover:opacity-100 transition-all duration-300 absolute flex items-center justify-center w-[30px] h-[30px] ${!note.selected.selected ? 'group-hover:right-4 right-[-40px] top-[-10px]' : 'right-4 top-[-10px]'} bg-black rounded-full transform`}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-yellow-400">
           <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+        </svg>
+      </div>
+
+      <div
+        onClick={() => handleDelete()}
+        className={`group-hover:opacity-100 transition-all duration-300 absolute flex items-center justify-center w-[30px] h-[30px] group-hover:right-4 right-[-40px] top-8 bg-black rounded-full transform`}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-white">
+          <path fill-rule="evenodd" d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z" clip-rule="evenodd" />
         </svg>
       </div>
 
