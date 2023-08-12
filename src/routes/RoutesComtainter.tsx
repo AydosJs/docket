@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "../App";
-import AuthContainer from "../containers/auth/AuthContainer";
-
+import LoginContaine from "../containers/auth/LoginContaine";
+import RegisterContaine from "../containers/auth/RegisterContaine";
 
 const RoutesComtainter = () => {
   return (
@@ -11,8 +11,8 @@ const RoutesComtainter = () => {
         <Route path="/" element={<App />}>
         </Route>
 
-        <Route path="/auth" element={<AuthContainer />}>
-        </Route>
+        <Route path="/login" element={<LoginContaine />} />
+        <Route path="/register" element={<RegisterContaine />} />
 
         <Route
           path="*"

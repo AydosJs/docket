@@ -6,10 +6,11 @@ type Props = React.DetailedHTMLProps<
   className?: React.ReactNode;
 }
 
-export default function Button({ children, className = '' }: Props) {
+export default function Button({ children, className = '', ...rest }: Props) {
   return (
     <button
-      className={`w-full p-2 py-2.5  text-base text-center text-white rounded-lg font-medium ${className}`}>
+      className={`w-full p-2 py-2.5  text-base text-center text-white rounded-lg font-medium ${className}`}
+      {...rest}>
       {children}
     </button>
   )
