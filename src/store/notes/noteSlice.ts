@@ -22,7 +22,7 @@ const initialState: Array<Note> = [
     date: "11/08/2023",
     color: {
       id: "1",
-      paint: "orange",
+      paint: "#FB923C",
     },
     selected: {
       selected: false,
@@ -62,5 +62,5 @@ export const noteSlice = createSlice({
 });
 
 export const { addNote, editNote, selected, deleteNote } = noteSlice.actions;
-export const noteSelector = (state: RootState) => state.noteReducer;
+export const noteSelector = (state: RootState) => state.notes;
 export default noteSlice.reducer;

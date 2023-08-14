@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import NoteComponent from "../../components/NoteComponent";
 import { Note, noteSelector } from "../../store/notes/noteSlice";
-import { useAppSelector } from "../../store/hooks";
 import AboutMeCardComponent from "../../components/aboutMeCard/AboutMeCardComponent";
+import { useAppSelector } from "../../store/hooks";
 
 export default function NotestContainer() {
   const [notes, setNotes] = useState<Array<Note>>([])
@@ -10,12 +10,9 @@ export default function NotestContainer() {
 
   useEffect(() => {
     setNotes(storedNotes)
-    return () => {
-      console.log('unmointing...')
-    }
   }, [storedNotes])
 
-  console.log("array", notes)
+  console.log("notes", notes)
 
   return (
     <div className="min-h-[calc(100vh-212px)]">

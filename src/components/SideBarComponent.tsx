@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Color, Note, addNote } from "../store/notes/noteSlice";
 import { useDispatch } from "react-redux";
 
-const colors: Array<Color> = [
+export const colors: Array<Color> = [
   {
     id: '1',
     paint: '#FB923C'
