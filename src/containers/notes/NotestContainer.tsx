@@ -16,11 +16,11 @@ export default function NotestContainer() {
 
   return (
     <div className="min-h-[calc(100vh-212px)]">
-      <h1 className="mb-12 text-5xl font-semibold">
+      <h1 className="hidden mb-12 text-5xl font-semibold sm:block">
         Notes
       </h1>
 
-      <div className="grid grid-cols-5 gap-6 place-items-stretch">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 place-items-stretch">
         <AboutMeCardComponent />
 
         {notes?.length !== 0 && notes.map((note: Note) => (
