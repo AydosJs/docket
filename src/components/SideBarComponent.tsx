@@ -3,30 +3,11 @@ import { Link } from "react-router-dom";
 import { Color, Note, addNote } from "../store/notes/noteSlice";
 import { useDispatch } from "react-redux";
 
-export const colors: Array<Color> = [
-  {
-    id: '1',
-    paint: '#FB923C'
-  },
-  {
-    id: '2',
-    paint: '#FB7185'
-  },
-  {
-    id: '3',
-    paint: '#C084FC'
-  },
-  {
-    id: '4',
-    paint: '#38BDF8'
-  },
-  {
-    id: '5',
-    paint: '#FACC15'
-  }
-]
+type Props = {
+  handleClose: () => void
+}
 
-export default function SideBarComponent() {
+export default function SideBarComponent({ handleClose }: Props) {
 
   const dispatch = useDispatch()
   const [openClors, setOpenColors] = useState<boolean>(false)
@@ -40,10 +21,10 @@ export default function SideBarComponent() {
       selected: {
         selected: false,
         date: ''
-      }
+      },
     }
-
     dispatch(addNote(newNote))
+    handleClose()
   }
 
   return (
@@ -87,3 +68,26 @@ export default function SideBarComponent() {
     </div>
   )
 }
+
+export const colors: Array<Color> = [
+  {
+    id: '1',
+    paint: '#FB923C'
+  },
+  {
+    id: '2',
+    paint: '#FB7185'
+  },
+  {
+    id: '3',
+    paint: '#C084FC'
+  },
+  {
+    id: '4',
+    paint: '#38BDF8'
+  },
+  {
+    id: '5',
+    paint: '#FACC15'
+  }
+]
