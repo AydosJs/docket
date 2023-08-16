@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import NoteComponent from "../../components/NoteComponent";
 import { Note, noteSelector } from "../../store/notes/noteSlice";
-import AboutMeCardComponent from "../../components/aboutMeCard/AboutMeCardComponent";
+// import AboutMeCardComponent from "../../components/aboutMeCard/AboutMeCardComponent";
 import { useAppSelector } from "../../store/hooks";
 
 export default function NotestContainer() {
@@ -21,7 +21,7 @@ export default function NotestContainer() {
       </h1>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 place-items-stretch">
-        <AboutMeCardComponent />
+        {/* <AboutMeCardComponent /> */}
 
         {notes?.length !== 0 && notes.map((note: Note) => (
           <NoteComponent note={note} key={note?.id} />
