@@ -31,7 +31,7 @@ export default function RegisterContaine() {
 
   return (
     <div className="flex items-center justify-center w-screen h-screen">
-      <form className="flex flex-col w-1/4 space-y-6" onSubmit={formik.handleSubmit}>
+      <form className="flex flex-col p-10 space-y-6 sm:p-0 sm:w-2/4 md:w-2/4 lg:w-1/4" onSubmit={formik.handleSubmit}>
         <div className="mb-4">
           <h1 className="mb-1 text-4xl font-semibold text-black">
             Create an account
