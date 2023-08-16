@@ -15,7 +15,7 @@ export default function NotestContainer() {
   console.log("notes", notes)
 
   return (
-    <div className="min-h-[calc(100vh-212px)]">
+    <div className="min-h-[calc(100vh-212px)] ">
       <h1 className="hidden mb-12 text-5xl font-semibold sm:block">
         Notes
       </h1>

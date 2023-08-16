@@ -8,9 +8,9 @@ export default function HeaderComponent() {
   const sideBarComp = <SideBarComponent handleClose={() => setOpen(false)} />
 
   return (
-    <div className="h-full">
+    <div className="h-full ">
 
-      <div className='w-[106px] hidden sm:block  h-full p-4 pt-6' >
+      <div className='w-[106px] border-r border-gray-300 hidden sm:block sm:fixed  h-full p-4 pt-6 sm:top-0 sm:left-0' >
         {sideBarComp}
       </div >
 

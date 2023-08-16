@@ -6,11 +6,11 @@ import NotestContainer from "./containers/notes/NotestContainer"
 
 function App() {
   return (
-    <div className='flex flex-col h-screen divide-x divide-gray-300 sm:flex-row'>
+    <div className='flex flex-col justify-center h-screen overflow-hidden overflow-y-auto sm:flex-row'>
       <div className="">
         <HeaderComponent />
       </div>
-      <div className='w-full p-4 px-6 pt-6 overflow-hidden overflow-y-auto sm:px-12 '>
+      <div className='sm:ml-[106px]  w-full p-4 px-6 pt-6  sm:px-12 max-w-[100rem]'>
         <SearchComponent />
         <NotestContainer />
         <FooterComponent />

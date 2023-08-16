@@ -28,7 +28,7 @@ export default function SideBarComponent({ handleClose }: Props) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-between h-full">
+    <div className="flex flex-col items-center justify-between h-full ">
       <div className="flex flex-col items-center space-y-4">
         <h1 className="mt-2 mb-12 text-base font-medium">Docket</h1>
 
